@@ -1,0 +1,26 @@
+version: '3'
+services:
+  postgres:
+    image: postgres
+    container_name: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: Users
+      POSTGRES_USER: postgres 
+      POSTGRES_PASSWORD: mysecretpassword
+    ports:
+      - "5432:5432"
+  backapp:
+    image: yasminelakhdher/user_app:frontapp-1
+    ports:
+      - 4200:4200
+    working_dir: /home/node/app
+    volumes:
+      - ./angular-app:/home/node/app
+      - node_modules:/home/node/app/node_modules
+    command: sh -c "npm install"
+volumes:
+  node_modules:
+  postgres_data:
+    driver: local
