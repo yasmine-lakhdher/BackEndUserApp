@@ -1,0 +1,17 @@
+server:
+  error:
+    include-message: always
+    include-stacktrace: always
+  port: ${SERVER_PORT:9091}
+spring:
+  datasource:
+    hikari:
+      auto-commit: false
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/Users}
+    username: postgres
+    password: mysecretpassword
+    
+  jpa:
+    hibernate:
+      ddl-auto: update
+    
