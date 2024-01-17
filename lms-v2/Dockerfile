@@ -2,4 +2,5 @@ FROM openjdk:19
 WORKDIR /app
 COPY ./target/Project-0.0.1-SNAPSHOT.jar /app
 EXPOSE 9091
-CMD ["java", "-jar", "Projet-0.0.1-SNAPSHOT.jar"]
+#CMD ["java", "-jar", "Projet-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "Projet-0.0.1-SNAPSHOT.jar"]
